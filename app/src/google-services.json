@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "4546290480",
+    "project_id": "grainall-73a4f",
+    "storage_bucket": "grainall-73a4f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4546290480:android:745e6b65bef1229b0d9ef5",
+        "android_client_info": {
+          "package_name": "com.fiap.grainall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4546290480-cef7otlior18lsmgfmpi3296e5671a3s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fiap.grainall",
+            "certificate_hash": "9c58818b2db68f7c2f72893a9d06819d170ade8b"
+          }
+        },
+        {
+          "client_id": "4546290480-9da3kq9a06ghv1ao0l9ig303j57it89q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0jzvrkJUdBAif3NRxynveWwdH_yTWauA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4546290480-9da3kq9a06ghv1ao0l9ig303j57it89q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
