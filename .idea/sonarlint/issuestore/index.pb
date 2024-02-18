@@ -1,0 +1,21 @@
+
+D
+app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
+@
+build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+e
+5app/src/main/java/com/fiap/grainall/MyFoodFragment.kt,0/c/0c11f7ae310f9afb2c9dc4b4f5dc0dddc026dc2a
+F
+app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
+o
+?app/src/main/java/com/fiap/grainall/view/login/LoginFragment.kt,9/7/970aee812875465639f54e8a3a1876367dd6809b
+r
+Bapp/src/main/java/com/fiap/grainall/view/form/FormLoginFragment.kt,5/a/5a9015f121b6cdb5f2da2fdccd76fed213ee16c5
+p
+@app/src/main/java/com/fiap/grainall/view/login/LoginViewModel.kt,4/9/497a33de67f91ae78b59bcb2f4b98564faf603b0
+n
+>app/src/main/java/com/fiap/grainall/view/form/FormViewModel.kt,1/f/1f413ba8f7233061df108242215be588c9c22b63
+h
+8app/src/main/java/com/fiap/grainall/FormLoginFragment.kt,e/1/e1a51307a7dc45bd6b797eb622ff44e19722719b

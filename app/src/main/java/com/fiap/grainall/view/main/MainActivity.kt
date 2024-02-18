@@ -1,4 +1,4 @@
-package com.fiap.grainall
+package com.fiap.grainall.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

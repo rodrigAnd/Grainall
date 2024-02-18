@@ -6,7 +6,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.fiap.grainall.SplashFragment"
+        android:name="com.fiap.grainall.view.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -15,16 +15,28 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.fiap.grainall.LoginFragment"
+        android:name="com.fiap.grainall.view.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_myFoodFragment"
             app:destination="@id/myFoodFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_formLoginFragment"
+            app:destination="@id/formLoginFragment" />
     </fragment>
     <fragment
         android:id="@+id/myFoodFragment"
         android:name="com.fiap.grainall.MyFoodFragment"
         android:label="fragment_my_food"
         tools:layout="@layout/fragment_my_food" />
+    <fragment
+        android:id="@+id/formLoginFragment"
+        android:name="com.fiap.grainall.view.form.FormLoginFragment"
+        android:label="fragment_form_login"
+        tools:layout="@layout/fragment_form_login" >
+        <action
+            android:id="@+id/action_formLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
