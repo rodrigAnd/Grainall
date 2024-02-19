@@ -1,4 +1,4 @@
-package com.fiap.grainall
+package com.fiap.grainall.feature.alimento.di.splash
 
 import android.animation.Animator
 import android.os.Bundle
@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.fiap.grainall.R
 import com.fiap.grainall.databinding.FragmentSplashBinding
+
+
 
 
 class SplashFragment : Fragment() {

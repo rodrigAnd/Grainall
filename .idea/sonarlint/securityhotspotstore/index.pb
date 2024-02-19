@@ -1,0 +1,19 @@
+
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+j
+:app/src/main/java/com/fiap/grainall/GrainallApplication.kt,b/6/b6521649ec72cb4764b19d210595ac36cf7fa914
+
+Oapp/src/main/java/com/fiap/grainall/feature/alimento/data/AlimentoRepository.kt,1/f/1f791dbd4157dec9a2f310074fe39c2af1a1f1c6
+D
+app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
+c
+3app/src/main/java/com/fiap/grainall/di/AppModule.kt,e/1/e1657383277ceffb44ae282afdb5d167a3a58de8
+‡
+Wapp/src/main/java/com/fiap/grainall/feature/alimento/di/viewmodel/EstadoAppViewModel.kt,b/a/ba1bfc32df6adc977668d577743d9e7f01554bba
+c
+3app/src/main/java/com/fiap/grainall/MainActivity.kt,5/8/58bc479b92dd30dc40617232faccdca39df03ec3
+Ž
+^app/src/main/java/com/fiap/grainall/feature/alimento/di/alimento/FormularioAlimentoFragment.kt,8/2/826981b9a098e598083825383771bf589fbd0da5
+Œ
+\app/src/main/java/com/fiap/grainall/feature/alimento/di/alimento/ListaMyAlimentosFragment.kt,f/4/f44cff749f07fb5faf8ff9cbd4de43b3c67ad2c8
