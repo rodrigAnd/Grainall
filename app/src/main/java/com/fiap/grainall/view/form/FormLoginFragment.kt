@@ -48,9 +48,9 @@ class FormLoginFragment : Fragment() {
 
     private fun initButtons() {
         binding.buttonCreatedAccount.setOnClickListener {
-            val name = binding.editTextTextPersonName.text.toString()
-            val email = binding.editTextTextPassword.text.toString()
-            val password = binding.editTextTextPassword.text.toString()
+            val name = binding.etName.text.toString()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
 
             if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
                 auth.createUserWithEmailAndPassword(email, password)
