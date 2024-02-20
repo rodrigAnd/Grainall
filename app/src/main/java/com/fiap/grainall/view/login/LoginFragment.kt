@@ -57,7 +57,7 @@ class LoginFragment : Fragment() {
                 when (it) {
                     is RequestState.Success -> {
                         binding.loadingAnimationLogin.visibility = View.INVISIBLE
-                        findNavController().navigate(R.id.action_loginFragment_to_myFoodFragment)
+                        findNavController().navigate(R.id.action_loginFragment_to_listaAlimentosFragment)
                     }
 
                     is RequestState.Error -> {
@@ -103,7 +103,7 @@ class LoginFragment : Fragment() {
                 GoogleSignIn.getLastSignedInAccount(requireActivity())
 
             if (account != null) {
-                findNavController().navigate(R.id.action_loginFragment_to_myFoodFragment)
+                findNavController().navigate(R.id.action_loginFragment_to_listaAlimentosFragment)
             }
 
             binding.signInButtonGoogle.setOnClickListener {
@@ -123,7 +123,7 @@ class LoginFragment : Fragment() {
                 try {
                     val account = task.getResult(ApiException::class.java)
                     if (account != null) {
-                        findNavController().navigate(R.id.action_loginFragment_to_myFoodFragment)
+                        findNavController().navigate(R.id.action_formularioAlimento_to_listaAlimentos)
                     }
                 } catch (e: Exception) {
                     e.stackTrace

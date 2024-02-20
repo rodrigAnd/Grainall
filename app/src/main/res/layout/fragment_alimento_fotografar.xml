@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.alimento.presenter.fotografar.AlimentoFotografarFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_5"
+        android:paddingTop="@dimen/margin_quarter"
+        android:paddingBottom="@dimen/margin_default_half">
+
+        <ImageButton
+            android:id="@+id/btAlimentoFotografarBackIcon"
+            style="@style/ButtonIcon"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size"
+            android:layout_marginStart="@dimen/margin_half"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintBottom_toTopOf="@id/ivAlimentoFotografarPosterImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <ImageView
+            android:id="@+id/ivAlimentoFotografarPosterImage"
+            android:layout_width="@dimen/image_profile_width"
+            android:layout_height="@dimen/image_profile_height"
+            android:layout_margin="@dimen/margin_default"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/tvCmpMediaFotografarAlimento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btAlimentoFotografarBackIcon"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/tvCmpMediaFotografarAlimento"
+            style="@style/WatchCardAlimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default"
+            app:layout_constraintBottom_toTopOf="@+id/btAlimentoFotografarMinhaFoto"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAlimentoFotografarPosterImage"
+            tools:text="refeição" />
+
+
+        <Button
+            android:id="@+id/btAlimentoFotografarMinhaFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default"
+            android:text="TIRAR FOTO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvCmpMediaFotografarAlimento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCmpMediaFotografarAlimento" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

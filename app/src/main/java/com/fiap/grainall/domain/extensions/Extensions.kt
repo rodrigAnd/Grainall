@@ -6,6 +6,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 
 
 fun Fragment.hideKeyboard() {
@@ -26,6 +27,15 @@ fun Fragment.hideKeyboard() {
         window.statusBarColor = Color.TRANSPARENT
     }
 }
+
+fun View.snackbar(
+    mensagem: String,
+    duracao: Int = Snackbar.LENGTH_SHORT
+) = Snackbar.make(
+    this,
+    mensagem,
+    duracao
+).show()
 
 
 

@@ -54,3 +54,17 @@ L
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+l
+<app/src/main/java/com/fiap/grainall/domain/model/Alimento.kt,9/0/90f17e2646934f9636b86dab07ce1749c8b10526
+s
+Capp/src/main/java/com/fiap/grainall/domain/extensions/Extensions.kt,6/d/6d5ff098df8c7b6c98c6ab6732275a17c5556004
+x
+Happ/src/main/java/com/fiap/grainall/view/viewmodel/EstadoAppViewModel.kt,a/5/a517dbfd9345a661f9c08e8ce856b03ebdedd12a
+d
+4app/src/main/java/com/fiap/grainall/utils/Command.kt,c/6/c6b1699f1be907136140930ff160128a0546bffa
+}
+Mapp/src/main/java/com/fiap/grainall/view/alimento/ListaMyAlimentosFragment.kt,a/6/a644a76b1a3fcf223842b160f226ce072062ae07
+y
+Iapp/src/main/java/com/fiap/grainall/view/adapter/ListaAlimentosAdapter.kt,3/c/3c2bfd2901e642fbc3d86a925924553ba1bb2b39
+
+Oapp/src/main/java/com/fiap/grainall/view/alimento/FormularioAlimentoFragment.kt,a/c/acf2a621c43008e6dd764314ffc2523bbd6b2e6c
