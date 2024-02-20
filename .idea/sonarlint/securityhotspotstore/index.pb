@@ -51,3 +51,6 @@ Bapp/src/main/java/com/fiap/grainall/domain/usecase/LoginUseCase.kt,c/a/caef600
 Lapp/src/main/java/com/fiap/grainall/domain/repository/LoginRepositoryImpl.kt,c/9/c99e3540b49a1348f6fa50938215b4356128d874
 L
 app/src/google-services.json,8/8/88a80eabc37aa96a2f3c94e7690c1818167904fb
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
