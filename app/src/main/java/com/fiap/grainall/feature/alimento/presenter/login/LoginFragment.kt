@@ -1,4 +1,4 @@
-package com.fiap.grainall.feature.alimento.di.login
+package com.fiap.grainall.feature.alimento.presenter.login
 
 import android.content.Intent
 import android.os.Bundle

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.fiap.grainall.feature.alimento.di.splash.SplashFragment"
+        android:name="com.fiap.grainall.feature.alimento.presenter.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.fiap.grainall.feature.alimento.di.login.LoginFragment"
+        android:name="com.fiap.grainall.feature.alimento.presenter.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/listaAlimentos"
-        android:name="com.fiap.grainall.feature.alimento.di.alimento.ListaAlimentosFragment"
+        android:name="com.fiap.grainall.feature.alimento.presenter.alimento.ListaAlimentosFragment"
         android:label="Alimentos"
         tools:layout="@layout/lista_alimentos">
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/formularioAlimento"
-        android:name="com.fiap.grainall.feature.alimento.di.alimento.FormularioAlimentoFragment"
+        android:name="com.fiap.grainall.feature.alimento.presenter.alimento.FormularioAlimentoFragment"
 
         android:label="Novo alimento"
         tools:layout="@layout/formulario_alimento">

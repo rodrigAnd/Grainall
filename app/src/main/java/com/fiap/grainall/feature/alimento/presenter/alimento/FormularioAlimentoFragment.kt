@@ -1,4 +1,4 @@
-package com.fiap.grainall.feature.alimento.di.alimento
+package com.fiap.grainall.feature.alimento.presenter.alimento
 
 
 import android.Manifest
@@ -29,9 +29,9 @@ import com.fiap.grainall.R
 import com.fiap.grainall.databinding.FormularioAlimentoBinding
 import com.fiap.grainall.databinding.OpcoesImagemAlimentoBinding
 import com.fiap.grainall.extensions.snackbar
-import com.fiap.grainall.feature.alimento.di.viewmodel.Componentes
-import com.fiap.grainall.feature.alimento.di.viewmodel.EstadoAppViewModel
-import com.fiap.grainall.feature.alimento.di.viewmodel.FormularioAlimentoViewModel
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.Componentes
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.EstadoAppViewModel
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.FormularioAlimentoViewModel
 import com.fiap.grainall.model.Alimento
 import com.fiap.grainall.utils.Resultado
 import com.google.android.material.bottomsheet.BottomSheetBehavior

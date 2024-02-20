@@ -1,4 +1,4 @@
-package com.fiap.grainall.feature.alimento.di.recyclerview.adapter
+package com.fiap.grainall.feature.alimento.presenter.recyclerview.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import coil.load
 import com.fiap.grainall.R
 import com.fiap.grainall.databinding.ItemAlimentoBinding
 import com.fiap.grainall.model.Alimento
+import com.squareup.picasso.Picasso
 
 
 class ListaAlimentosAdapter(
@@ -77,13 +78,11 @@ class ListaAlimentosAdapter(
             }
             binding.itemAlimentoImagem.visibility = visibilidade
             alimento.imagem?.let { imagem ->
-                binding.itemAlimentoImagem.load(imagem) {
-                    placeholder(R.drawable.imagem_carregando_placeholder)
-                    crossfade(true)
-                }
+                Picasso.get()
+                    .load(imagem)
+                    .placeholder(R.drawable.imagem_carregando_placeholder)
+                    .into(binding.itemAlimentoImagem)
             }
         }
-
     }
-
 }

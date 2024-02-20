@@ -1,4 +1,4 @@
-package com.fiap.grainall.feature.alimento.di.splash
+package com.fiap.grainall.feature.alimento.presenter.splash
 
 import android.animation.Animator
 import android.os.Bundle

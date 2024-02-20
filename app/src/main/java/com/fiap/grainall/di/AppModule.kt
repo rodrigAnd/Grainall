@@ -1,9 +1,9 @@
 package com.fiap.grainall.di
 
 import com.fiap.grainall.feature.alimento.data.AlimentoRepository
-import com.fiap.grainall.feature.alimento.di.viewmodel.EstadoAppViewModel
-import com.fiap.grainall.feature.alimento.di.viewmodel.FormularioAlimentoViewModel
-import com.fiap.grainall.feature.alimento.di.viewmodel.ListaAlimentosViewModel
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.EstadoAppViewModel
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.FormularioAlimentoViewModel
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.ListaAlimentosViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

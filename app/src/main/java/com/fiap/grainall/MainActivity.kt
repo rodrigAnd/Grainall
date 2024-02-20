@@ -9,7 +9,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 
 import com.fiap.grainall.databinding.ActivityMainBinding
-import com.fiap.grainall.feature.alimento.di.viewmodel.EstadoAppViewModel
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.EstadoAppViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

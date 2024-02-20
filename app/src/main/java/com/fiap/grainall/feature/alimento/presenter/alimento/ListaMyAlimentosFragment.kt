@@ -1,4 +1,4 @@
-package com.fiap.grainall.feature.alimento.di.alimento
+package com.fiap.grainall.feature.alimento.presenter.alimento
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fiap.grainall.databinding.ListaAlimentosBinding
 import com.fiap.grainall.extensions.snackbar
-import com.fiap.grainall.feature.alimento.di.recyclerview.adapter.ListaAlimentosAdapter
-import com.fiap.grainall.feature.alimento.di.viewmodel.EstadoAppViewModel
-import com.fiap.grainall.feature.alimento.di.viewmodel.ListaAlimentosViewModel
+import com.fiap.grainall.feature.alimento.presenter.recyclerview.adapter.ListaAlimentosAdapter
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.EstadoAppViewModel
+import com.fiap.grainall.feature.alimento.presenter.viewmodel.ListaAlimentosViewModel
 import com.fiap.grainall.utils.Resultado
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

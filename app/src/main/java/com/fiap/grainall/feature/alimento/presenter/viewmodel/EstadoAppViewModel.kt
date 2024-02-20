@@ -1,4 +1,4 @@
-package com.fiap.grainall.feature.alimento.di.viewmodel
+package com.fiap.grainall.feature.alimento.presenter.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
