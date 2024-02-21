@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.fiap.grainall.domain.model.Alimento
 import com.fiap.grainall.domain.repository.AlimentoRepository
-import com.fiap.grainall.utils.Resultado
+import com.fiap.grainall.domain.state.RequestState
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
@@ -18,10 +18,10 @@ class FormularioAlimentoViewModel(
     fun buscaAlimento(id: String) = repository.buscaPorId(id).asLiveData()
 
     fun salva(alimento: Alimento, imagem: ByteArray) =
-        liveData<Resultado<Unit>> {
+        liveData<RequestState<Unit>> {
             try {
                 val id = repository.salva(alimento)
-                emit(Resultado.Sucesso())
+                emit(RequestState.Success())
                 coroutineScope {
                     launch {
                         tentaEnviarImagem(id, imagem)
@@ -29,26 +29,26 @@ class FormularioAlimentoViewModel(
                 }
             } catch (e: Exception) {
                 Log.e("FormAlimentoVM", "salva: falha ao enviar alimento", e)
-                emit(Resultado.Erro(e))
+                emit(RequestState.Error(e))
             }
         }
 
     fun remove(alimentoId: String) =
-        liveData<Resultado<Unit>> {
+        liveData<RequestState<Unit>> {
             try {
                 repository.remove(alimentoId)
-                emit(Resultado.Sucesso())
+                emit(RequestState.Success())
                 repository.removeImagem(alimentoId)
             } catch (e: Exception) {
-                emit(Resultado.Erro(e))
+                emit(RequestState.Error(e))
             }
         }
 
     fun edita(alimento: Alimento, imagem: ByteArray) =
-        liveData<Resultado<Unit>> {
+        liveData<RequestState<Unit>> {
             try {
                 repository.edita(alimento)
-                emit(Resultado.Sucesso())
+                emit(RequestState.Success())
                 alimento.id?.let { alimentoId ->
                     coroutineScope {
                         launch {
@@ -57,7 +57,7 @@ class FormularioAlimentoViewModel(
                     }
                 }
             } catch (e: Exception) {
-                emit(Resultado.Erro(e))
+                emit(RequestState.Error(e))
             }
         }
 

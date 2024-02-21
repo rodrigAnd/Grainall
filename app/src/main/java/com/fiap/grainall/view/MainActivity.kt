@@ -28,13 +28,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSupportActionBar(binding.activityMainToolbar)
+        setSupportActionBar(binding.topAppBar)
         controlador.addOnDestinationChangedListener { _: NavController, navDestination: NavDestination, _: Bundle? ->
             title = navDestination.label
         }
         viewModel.componentes.observe(this) {
             it?.let { components ->
-                binding.activityMainToolbar.visibility =
+                binding.topAppBar.visibility =
                     if (components.appBar) VISIBLE
                     else GONE
             }

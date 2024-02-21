@@ -1,18 +1,25 @@
 package com.fiap.grainall.view.form
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.fiap.grainall.R
 import com.fiap.grainall.databinding.FragmentFormLoginBinding
+import com.fiap.grainall.domain.extensions.onBackPress
+import com.fiap.grainall.domain.state.RequestState
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -25,13 +32,7 @@ class FormLoginFragment : Fragment() {
         FragmentFormLoginBinding.inflate(layoutInflater)
     }
 
-    private lateinit var auth: FirebaseAuth
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // Initialize Firebase Auth
-        auth = Firebase.auth
-    }
+    private val viewModel: FormViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +45,31 @@ class FormLoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initButtons()
+        initObservers()
+        onBackPress()
+    }
+
+    private fun initObservers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.createUserState.collect {
+                when (it) {
+                    is RequestState.Success -> {
+                        binding.ivLogin.visibility = View.INVISIBLE
+                        findNavController().navigate(R.id.action_formLoginFragment_to_loginFragment)
+                    }
+                    is RequestState.Error -> {
+                        binding.layoutLoading.loadingAnimationLogin.visibility = View.INVISIBLE
+                        binding.tvPasswordFeedback.text = getString(R.string.fail_create_user)
+                    }
+                    is RequestState.Loading -> {
+                        binding.layoutLoading.loadingAnimationLogin.visibility = View.VISIBLE
+                    }
+
+                    else -> {}
+                }
+
+            }
+        }
     }
 
     private fun initButtons() {
@@ -51,27 +77,16 @@ class FormLoginFragment : Fragment() {
             val name = binding.etName.text.toString()
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
+            val confirmPassword = binding.etValidPassword.text.toString()
 
-            if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                auth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(requireActivity()) { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            val user = auth.currentUser
-                            Log.d("Sucesso", "sucesso: $user")
-                            findNavController().navigate(R.id.action_formLoginFragment_to_loginFragment)
+            val isValid = viewModel.validUser(name, email, password, confirmPassword)
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(
-                                requireContext(),
-                                "Erro ao criar usuário",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-            } else
-                Toast.makeText(requireContext(), "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+            if (isValid) {
+                viewModel.createUser(email, password)
+
+            } else {
+                binding.tvPasswordFeedback.text = getString(R.string.fail_create_user)
+            }
         }
     }
 }

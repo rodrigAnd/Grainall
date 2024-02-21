@@ -6,23 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.fiap.grainall.R
 import com.fiap.grainall.databinding.FragmentLoginBinding
-import com.fiap.grainall.domain.extensions.fullScreen
 import com.fiap.grainall.domain.extensions.hideKeyboard
+import com.fiap.grainall.domain.extensions.onBackPress
 import com.fiap.grainall.domain.model.User
 import com.fiap.grainall.domain.state.RequestState
+import com.fiap.grainall.view.viewmodel.EstadoAppViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
@@ -31,6 +32,7 @@ class LoginFragment : Fragment() {
     lateinit var gso: GoogleSignInOptions
     lateinit var gsc: GoogleSignInClient
     private val viewModel: LoginViewModel by viewModel()
+    private val estadoAppViewModel: EstadoAppViewModel by sharedViewModel()
     private val binding: FragmentLoginBinding by lazy {
         FragmentLoginBinding.inflate(layoutInflater)
     }
@@ -45,10 +47,9 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         hideKeyboard()
-        fullScreen()
-        loginGoogle()
         initButtons()
         initObserver()
+        onBackPress()
     }
 
     private fun initObserver() {
@@ -77,6 +78,7 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+        estadoAppViewModel.limpaComponentes()
     }
 
         private fun initButtons() {
@@ -91,28 +93,6 @@ class LoginFragment : Fragment() {
                 lifecycleScope.launch {
                     viewModel.login(User(email, password))
                 }
-            }
-        }
-
-        private fun loginGoogle() {
-            gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
-            gsc = GoogleSignIn.getClient(requireActivity(), gso)
-            val account: GoogleSignInAccount? =
-                GoogleSignIn.getLastSignedInAccount(requireActivity())
-
-            if (account != null) {
-                findNavController().navigate(R.id.action_loginFragment_to_listaAlimentosFragment)
-            }
-
-            binding.signInButtonGoogle.setOnClickListener {
-                val signInIntent = gsc.signInIntent
-                startActivityForResult(signInIntent, REQUEST_CODE_GOOGLE_SIGN_IN)
-            }
-
-            requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-                requireActivity().finish()
             }
         }
 

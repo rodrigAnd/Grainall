@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fiap.grainall.R
 import com.fiap.grainall.databinding.FragmentSplashBinding
-import com.fiap.grainall.domain.extensions.fullScreen
 import com.fiap.grainall.domain.extensions.hideKeyboard
 
 
@@ -27,7 +26,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewComponent()
-        fullScreen()
+        //fullScreen()
     }
 
     private fun initViewComponent() {

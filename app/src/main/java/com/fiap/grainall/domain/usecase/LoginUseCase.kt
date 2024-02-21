@@ -10,7 +10,19 @@ import com.google.firebase.auth.FirebaseUser
 
 
 class LoginUseCase(private val loginRepositoty: LoginRepository) {
-    suspend fun login(user: User): RequestState<FirebaseUser>  {
+    suspend fun login(user: User): RequestState<FirebaseUser> {
         return loginRepositoty.login(user)
+    }
+
+    suspend fun createUser(email: String, password: String): RequestState<FirebaseUser> {
+        return loginRepositoty.createUser(user(email, password))
+    }
+
+    private fun user(email: String, password: String): User {
+        return User(email, password)
+    }
+
+    fun logout() {
+        loginRepositoty.logout()
     }
 }

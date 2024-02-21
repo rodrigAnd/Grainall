@@ -2,9 +2,9 @@ package com.fiap.grainall.domain.repository
 
 import android.util.Log
 import com.fiap.grainall.domain.model.Alimento
+import com.fiap.grainall.domain.state.RequestState
 import com.fiap.grainall.utils.Constants.FIRESTORE_COLLECTION_GRAINALLS
 import com.fiap.grainall.utils.Constants.TAG
-import com.fiap.grainall.utils.Resultado
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -72,13 +72,13 @@ class AlimentoRepository(
             .await()
     }
 
-    fun buscaTodos() = callbackFlow<Resultado<List<Alimento>>> {
+    fun buscaTodos() = callbackFlow<RequestState<List<Alimento>>> {
         val listener = firestore.collection(FIRESTORE_COLLECTION_GRAINALLS)
             .addSnapshotListener { query, erro ->
                 if (erro != null) {
                     //   offer(Resultado.Erro(erro))
 
-                    trySend(Resultado.Erro(erro)).isSuccess
+                    trySend(RequestState.Error(erro)).isSuccess
                     close(erro) // Fechar o canal em caso de erro
                     return@addSnapshotListener
                 }
@@ -89,7 +89,7 @@ class AlimentoRepository(
 
                 if (!isClosedForSend) { // Verificar se o canal ainda está aberto para enviar valores
                     //        offer(Resultado.Sucesso(alimentos))
-                    trySend(Resultado.Sucesso(alimentos)).isSuccess
+                    trySend(RequestState.Success(alimentos)).isSuccess
                 }
             }
 

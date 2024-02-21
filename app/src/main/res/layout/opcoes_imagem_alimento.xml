@@ -38,12 +38,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="start|center"
-        android:text="Remover"
+        android:text="@string/Fotografar"
         android:textColor="#222222"
         app:icon="@drawable/ic_action_foto"
         app:iconTint="#222222"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/opcoes_imagem_alimento_galeria" />
+        app:layout_constraintTop_toBottomOf="@id/opcoes_imagem_alimento_remover" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

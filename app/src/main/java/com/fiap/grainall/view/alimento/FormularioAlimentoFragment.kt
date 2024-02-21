@@ -29,10 +29,10 @@ import com.fiap.grainall.databinding.FormularioAlimentoBinding
 import com.fiap.grainall.databinding.OpcoesImagemAlimentoBinding
 import com.fiap.grainall.domain.extensions.snackbar
 import com.fiap.grainall.domain.model.Alimento
+import com.fiap.grainall.domain.state.RequestState
 import com.fiap.grainall.view.viewmodel.Componentes
 import com.fiap.grainall.view.viewmodel.EstadoAppViewModel
 import com.fiap.grainall.view.viewmodel.FormularioAlimentoViewModel
-import com.fiap.grainall.utils.Resultado
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -85,13 +85,6 @@ class FormularioAlimentoFragment : Fragment() {
         tentaCarregarAlimento()
         configuraCarregamentoDeImagem()
         configuraAlimentoImagem()
-        btnSave()
-    }
-
-    private fun btnSave() {
-        binding.btnSendImage.setOnClickListener {
-            criaAlimento()
-        }
     }
 
     private fun configuraAlimentoImagem() {
@@ -198,9 +191,11 @@ class FormularioAlimentoFragment : Fragment() {
         viewModel.edita(alimento, imagem).observe(viewLifecycleOwner) {
             it?.let { resultado ->
                 when (resultado) {
-                    is Resultado.Sucesso -> controlador.popBackStack()
-                    is Resultado.Erro -> binding.constraintLayout
+                    is RequestState.Success -> controlador.popBackStack()
+                    is RequestState.Error -> binding.constraintLayout
                         .snackbar(mensagem = "Alimento não foi editado")
+
+                    else -> {}
                 }
             }
         }
@@ -210,9 +205,11 @@ class FormularioAlimentoFragment : Fragment() {
         val imagem = devolveImagemDoAlimento()
         viewModel.salva(alimento, imagem).observe(viewLifecycleOwner) { resultado ->
             when (resultado) {
-                is Resultado.Sucesso -> controlador.popBackStack()
-                is Resultado.Erro -> binding.constraintLayout
+                is RequestState.Success -> controlador.popBackStack()
+                is RequestState.Error -> binding.constraintLayout
                     .snackbar(mensagem = "Alimento não foi enviado")
+
+                else -> {}
             }
         }
     }
