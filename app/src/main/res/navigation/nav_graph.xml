@@ -6,7 +6,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.fiap.grainall.SplashFragment"
+        android:name="com.fiap.grainall.view.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -15,16 +15,48 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.fiap.grainall.LoginFragment"
+        android:name="com.fiap.grainall.view.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_myFoodFragment"
-            app:destination="@id/myFoodFragment" />
+            android:id="@+id/action_loginFragment_to_formLoginFragment"
+            app:destination="@id/formLoginFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_listaAlimentosFragment"
+            app:destination="@id/listaAlimentos" />
     </fragment>
     <fragment
-        android:id="@+id/myFoodFragment"
-        android:name="com.fiap.grainall.MyFoodFragment"
-        android:label="fragment_my_food"
-        tools:layout="@layout/fragment_my_food" />
+        android:id="@+id/formLoginFragment"
+        android:name="com.fiap.grainall.view.form.FormLoginFragment"
+        android:label="fragment_form_login"
+        tools:layout="@layout/fragment_form_login" >
+        <action
+            android:id="@+id/action_formLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaAlimentos"
+        android:name="com.fiap.grainall.view.alimento.ListaAlimentosFragment"
+        android:label="Alimentos"
+        tools:layout="@layout/fragment_alimentos_adapter">
+        <action
+            android:id="@+id/acao_listaAlimentos_para_formularioAlimento"
+            app:destination="@id/formularioAlimento" />
+    </fragment>
+    <fragment
+        android:id="@+id/formularioAlimento"
+        android:name="com.fiap.grainall.view.alimento.FormularioAlimentoFragment"
+
+        android:label="Novo alimento"
+        tools:layout="@layout/formulario_alimento">
+        <argument
+            android:name="alimentoId"
+            android:id="@+id/alimentoId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_formularioAlimento_to_listaAlimentos"
+            app:destination="@id/listaAlimentos" />
+    </fragment>
 </navigation>

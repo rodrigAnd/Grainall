@@ -1,4 +1,4 @@
-package com.fiap.grainall
+package com.fiap.grainall.view.splash
 
 import android.animation.Animator
 import android.os.Bundle
@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.fiap.grainall.R
 import com.fiap.grainall.databinding.FragmentSplashBinding
-
+import com.fiap.grainall.domain.extensions.hideKeyboard
 
 class SplashFragment : Fragment() {
     private var binding: FragmentSplashBinding? = null
@@ -23,8 +24,8 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initViewComponent()
+        //fullScreen()
     }
 
     private fun initViewComponent() {

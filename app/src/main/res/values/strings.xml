@@ -1,6 +1,18 @@
 <resources>
-    <string name="app_name">My Crud Fiap</string>
+    <string name="app_name">Grainall</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_login">Login\nWelcome back!</string>
+    <string name="logout">sair</string>
+    <string name="hello_alimento_message">Olá  %1$s , %2$s ! :)</string>
+    <string name="Titulo_alimento">Minha Alimentação</string>
+    <string name="Titulo_Notificacao">Notificações</string>
+    <string name="Fotografar">Fotografar</string>
+    <string name="share_using">Select:</string>
+    <string name="share_alimento_message">Hello, see the %1$s refeição now. %2$s\n\nCheck out this and other refeição in the Refeição 20MOB app. :)</string>
+    <string name="error_default">Erro! Alguma coisa deu errada, tente novamente!</string>
+    <string name="media_poster">Refeição Image</string>
+    <string name="alimento">alimento</string>
+    <string name="splash_version">v1</string>
+    <string name="fail_create_user">Enter username and password</string>
 </resources>
