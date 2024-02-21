@@ -20,3 +20,6 @@ Final Project Android Class - MBA FIAP Mobile Development
 - Firebase
 - Lottie
 - Koin
+
+# Observação
+- O APK encontra-se na pasta raiz do projeto
