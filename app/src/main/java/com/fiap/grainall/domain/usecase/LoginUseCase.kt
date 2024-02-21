@@ -21,8 +21,4 @@ class LoginUseCase(private val loginRepositoty: LoginRepository) {
     private fun user(email: String, password: String): User {
         return User(email, password)
     }
-
-    fun logout() {
-        loginRepositoty.logout()
-    }
 }

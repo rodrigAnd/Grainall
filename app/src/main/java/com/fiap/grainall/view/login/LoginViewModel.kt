@@ -27,10 +27,4 @@ class LoginViewModel(private val logionUseCase: LoginUseCase) : ViewModel() {
             }
         }
     }
-
-    fun logout() {
-        viewModelScope.launch {
-            logionUseCase.logout()
-        }
-    }
 }

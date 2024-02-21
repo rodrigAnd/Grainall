@@ -19,6 +19,7 @@ import com.fiap.grainall.view.login.LoginViewModel
 import com.fiap.grainall.view.viewmodel.Componentes
 import com.fiap.grainall.view.viewmodel.EstadoAppViewModel
 import com.fiap.grainall.view.viewmodel.ListaAlimentosViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListaAlimentosFragment : Fragment() {
@@ -34,8 +35,7 @@ class ListaAlimentosFragment : Fragment() {
         findNavController()
     }
     private val viewModel: ListaAlimentosViewModel by viewModel()
-    private val loginViewModel: LoginViewModel by viewModel()
-    private val estadoViewModel: EstadoAppViewModel by viewModel()
+    private val estadoAppViewModel: EstadoAppViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,34 +52,12 @@ class ListaAlimentosFragment : Fragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.my_food_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_exit -> logout()
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun logout() {
-        loginViewModel.logout()
-        requireActivity().finish()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configuraRecyclerView()
         configuraFab()
         onBackPress()
-
+        estadoAppViewModel.limpaComponentes()
     }
 
     private fun configuraFab() {

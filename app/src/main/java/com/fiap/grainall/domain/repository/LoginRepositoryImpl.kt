@@ -30,8 +30,4 @@ class LoginRepositoryImpl(private val auth: FirebaseAuth) : LoginRepository {
             RequestState.Error(e)
         }
     }
-
-    override fun logout() {
-        auth.signOut()
-    }
 }

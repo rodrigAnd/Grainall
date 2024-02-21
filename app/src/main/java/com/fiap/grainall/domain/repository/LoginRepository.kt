@@ -8,5 +8,4 @@ interface LoginRepository {
     suspend fun createUser(user: User): RequestState<FirebaseUser>
     fun getUserLogged(): User
     suspend fun login(user: User): RequestState<FirebaseUser>
-    fun logout()
 }
