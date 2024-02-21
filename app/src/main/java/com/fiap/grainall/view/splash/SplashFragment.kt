@@ -11,7 +11,6 @@ import com.fiap.grainall.R
 import com.fiap.grainall.databinding.FragmentSplashBinding
 import com.fiap.grainall.domain.extensions.hideKeyboard
 
-
 class SplashFragment : Fragment() {
     private var binding: FragmentSplashBinding? = null
 
